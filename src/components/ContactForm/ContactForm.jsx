@@ -17,8 +17,7 @@ export const ContactForm = ({ onFormSubmit }) => {
 	const handleSubmit = e => {
 		e.preventDefault();
 
-		dispatch(setName(''))
-		dispatch(setNumber(''))
+		e.currentTarget.reset()
 	}
 
 	return (
