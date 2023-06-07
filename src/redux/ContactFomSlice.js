@@ -1,24 +1,29 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 // import { useDispatch } from "react-redux";
+// import { useSelector } from 'react-redux';
+// import { store } from './store';
 
-const CONTACT_FORM = 'contactForm'
+// const state = useSelector(store);
+const CONTACT_FORM = 'contactForm';
 const initialState = {
-	name: '',
-	number: '',
-}
+  contact: {
+    name: '',
+    number: '',
+  },
+};
 
 export const ContactFormSlice = createSlice({
-	name: CONTACT_FORM,
-	initialState,
+  name: CONTACT_FORM,
+  initialState,
 
-	reducers: {
-		setName(state, action) {
-			state.name = action.payload
-		},
-		setNumber(state, action) {
-			state.number = action.payload
-		}
-	}
-})
+  reducers: {
+    setName(state, action) {
+      state.contact.name = action.payload;
+    },
+    setNumber(state, action) {
+      state.contact.number = action.payload;
+    },
+  },
+});
 
-export const {setName, setNumber} = ContactFormSlice.actions
+export const { setName, setNumber } = ContactFormSlice.actions;
