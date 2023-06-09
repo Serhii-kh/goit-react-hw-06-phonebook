@@ -23,10 +23,7 @@ export const App = () => {
 	};
 	const filteredContacts = getFilteredContacts();
 
-	// useEffect(() => {
-	//   localStorage.setItem('contacts', JSON.stringify(contacts));
-	// }, [contacts]);
-
+	
 	return (
 		<div className={css.phonebook}>
 			<h1>Phonebook</h1>

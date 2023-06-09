@@ -1,8 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import { useDispatch } from "react-redux";
-// import { useSelector } from 'react-redux';
-// import { store } from './store';
-// const state = useSelector(store);
 import { initialState } from './state';
 
 const CONTACTS = 'contacts';
