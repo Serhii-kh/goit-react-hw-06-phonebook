@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { ContactFormSlice } from './ContactFomSlice';
+import { ContactsListSlice } from './ContactsListSlice';
 
 // const initialContacts = [
 //   { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -16,6 +16,6 @@ const initialState = {
 export const store = configureStore({
   initialState,
   reducer: {
-    contacts: ContactFormSlice.reducer,
+    contacts: ContactsListSlice.reducer,
   },
 });
