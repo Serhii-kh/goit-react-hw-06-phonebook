@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactsList } from './ContactsList/ContactsList';
 import { Filter } from './Filter/Filter';
-import shortid from 'shortid';
+// import shortid from 'shortid';
 import css from '../components/wrapper/wrapper.module.css';
 
 // const initialContacts = [
@@ -18,23 +18,23 @@ export const App = () => {
 
   const [filter, setFilter] = useState('');
 
-  const addContact = (name, number) => {
-    const contact = {
-      name,
-      number,
-      id: shortid.generate(),
-    };
+  // const addContact = (name, number) => {
+  //   const contact = {
+  //     name,
+  //     number,
+  //     id: shortid.generate(),
+  //   };
 
-    if (
-      contacts.find(
-        contact => contact.name.toLowerCase() === name.toLowerCase()
-      )
-    ) {
-      alert(`${name} is already in contacts!`);
-    } else {
-      setContacts(contacts => [...contacts, contact]);
-    }
-  };
+  //   if (
+  //     contacts.find(
+  //       contact => contact.name.toLowerCase() === name.toLowerCase()
+  //     )
+  //   ) {
+  //     alert(`${name} is already in contacts!`);
+  //   } else {
+  //     setContacts(contacts => [...contacts, contact]);
+  //   }
+  // };
 
   const deleteContact = contactId => {
     setContacts(contacts =>
@@ -64,7 +64,7 @@ export const App = () => {
   return (
     <div className={css.phonebook}>
       <h1>Phonebook</h1>
-      <ContactForm onFormSubmit={addContact} />
+      <ContactForm />
       <h2>Contacts</h2>
       <Filter value={filter} onChange={changeFilter} />
       <ContactsList
