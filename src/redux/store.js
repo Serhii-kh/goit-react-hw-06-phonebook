@@ -9,32 +9,18 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { ContactsListSlice } from './ContactsListSlice';
+// import { ContactsListSlice } from './ContactsListSlice';
 import { FilterSlice } from './FilterSlice';
-// import storage from 'redux-persist/lib/storage';
-// import { combineReducers } from '@reduxjs/toolkit';
+import { persistedContactsReducer } from './ContactsListSlice';
+import persistStore from 'redux-persist/es/persistStore';
 
-// const persistConfig = {
-//   key: 'contacts',
-//   storage,
-//   whitelist: ['contacts'],
-// };
-
-// const persistedContactsReducer = persistReducer(
-//   persistConfig,
-//   ContactsListSlice.reducer
-// );
-
-// const reducer = combineReducers({
-//   contacts: persistedContactsReducer,
-//   filter: FilterSlice.reducer,
-// });
+const reducer = {
+  contacts: persistedContactsReducer,
+  filter: FilterSlice.reducer,
+};
 
 export const store = configureStore({
-  reducer: {
-    contacts: ContactsListSlice.reducer,
-    filter: FilterSlice.reducer,
-  },
+  reducer,
 
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
@@ -44,4 +30,4 @@ export const store = configureStore({
     }),
 });
 
-// export const persistor = persistStore(store);
+export const persistor = persistStore(store);
