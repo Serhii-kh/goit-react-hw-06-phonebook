@@ -11,7 +11,7 @@ import {
 import { FilterSlice } from './FilterSlice';
 import { persistedContactsReducer } from './ContactsListSlice';
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
   contacts: persistedContactsReducer,
   filter: FilterSlice.reducer,
 });
