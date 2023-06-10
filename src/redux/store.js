@@ -16,6 +16,7 @@ export const rootReducer = combineReducers({
   filter: FilterSlice.reducer,
 });
 
+
 export const store = configureStore({
   reducer: rootReducer,
 
