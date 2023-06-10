@@ -7,7 +7,7 @@ const CONTACTS = 'contacts';
 
 const persistConfig = {
   key: 'contacts',
-  storage,
+	storage,
 };
 
 export const ContactsListSlice = createSlice({
