@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactsList } from './ContactsList/ContactsList';
 import { Filter } from './Filter/Filter';
@@ -7,7 +6,6 @@ import { addFilterText } from 'redux/FilterSlice';
 import css from '../components/wrapper/wrapper.module.css';
 
 export const App = () => {
-  //   const [filter, setFilter] = useState('');
   const contacts = useSelector(state => state.contacts);
   const filterValue = useSelector(state => state.filter);
   const dispatch = useDispatch();
