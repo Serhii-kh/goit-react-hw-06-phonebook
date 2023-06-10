@@ -3,11 +3,12 @@ import { FilterSlice } from "redux/FilterSlice";
 import { combineReducers } from "@reduxjs/toolkit";
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { CONTACTS } from "redux/constants";
 
 const persistConfig = {
-  key: 'contacts',
+  key: CONTACTS,
 	storage,
-	whitelist: ['contacts'],
+	whitelist: [CONTACTS],
 };
 
 const rootReducer = combineReducers({
