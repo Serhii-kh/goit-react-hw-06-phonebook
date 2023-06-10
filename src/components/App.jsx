@@ -32,7 +32,7 @@ export const App = () => {
       <h1>Phonebook</h1>
       <ContactForm />
       <h2>Contacts</h2>
-      <Filter value={filterValue} changeFilter={changeFilter} />
+      <Filter changeFilter={changeFilter} />
       <ContactsList contacts={filteredContacts} />
     </div>
   );
