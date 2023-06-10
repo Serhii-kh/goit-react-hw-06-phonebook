@@ -3,11 +3,13 @@ import { ContactsList } from './ContactsList/ContactsList';
 import { Filter } from './Filter/Filter';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFilterText } from 'redux/FilterSlice';
+import { getContacts } from 'redux/ContactsListSlice';
+import { getFilterValue } from 'redux/FilterSlice';
 import css from '../components/wrapper/wrapper.module.css';
 
 export const App = () => {
-  const contacts = useSelector(state => state.contacts);
-  const filterValue = useSelector(state => state.filter);
+  const contacts = useSelector(getContacts);
+  const filterValue = useSelector(getFilterValue);
   const dispatch = useDispatch();
 
   const changeFilter = e => {
