@@ -1,4 +1,4 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
   FLUSH,
@@ -9,16 +9,18 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { FilterSlice } from './FilterSlice';
-import { persistedContactsReducer } from './ContactsListSlice';
+import { ContactsListSlice } from './ContactsListSlice';
 
-export const rootReducer = combineReducers({
-  contacts: persistedContactsReducer,
-  filter: FilterSlice.reducer,
-});
-
+// export const rootReducer = combineReducers({
+//   contacts: persistedContactsReducer,
+//   filter: FilterSlice.reducer,
+// });
 
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: {
+    contacts: ContactsListSlice.reducer,
+    filter: FilterSlice.reducer,
+  },
 
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
@@ -28,4 +30,4 @@ export const store = configureStore({
     }),
 });
 
-export const persistor = persistStore(store);
+export let persistor = persistStore(store);
