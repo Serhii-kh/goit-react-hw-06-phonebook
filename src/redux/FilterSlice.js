@@ -4,11 +4,11 @@ const FILTER = 'filter';
 
 export const FilterSlice = createSlice({
   name: FILTER,
-  initialState: 'dff',
+  initialState: '',
 
   reducers: {
     addFilterText(state, action) {
-      state = action.payload;
+      return state = action.payload;
     },
   },
 });
