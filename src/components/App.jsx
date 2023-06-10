@@ -16,7 +16,6 @@ export const App = () => {
     const { value } = e.currentTarget;
 
     dispatch(addFilterText(value));
-    // setFilter(value);
   };
 
   const getFilteredContacts = () => {

@@ -1,11 +1,9 @@
 import { useSelector } from 'react-redux';
-// import { addFilterText } from 'redux/FilterSlice';
 import css from '../Filter/Filter.module.css';
 
 export const Filter = ({ changeFilter }) => {
 	const filterValue = useSelector(state => state.filter);
 	console.log(filterValue)
-  //   const dispatch = useDispatch();
 
   return (
     <label className={css.Filter}>
