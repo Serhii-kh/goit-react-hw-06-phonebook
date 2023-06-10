@@ -8,10 +8,10 @@ const initialState = {
 };
 
 export const store = configureStore({
-	initialState,
-	
+  initialState,
+
   reducer: {
-		contacts: ContactsListSlice.reducer,
-		filter: FilterSlice.reducer,
+    contacts: ContactsListSlice.reducer,
+    filter: FilterSlice.reducer,
   },
 });

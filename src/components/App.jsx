@@ -1,38 +1,40 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactsList } from './ContactsList/ContactsList';
 import { Filter } from './Filter/Filter';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addFilterText } from 'redux/FilterSlice';
 import css from '../components/wrapper/wrapper.module.css';
 
 export const App = () => {
-	const [filter, setFilter] = useState('');
-	const contacts = useSelector(state => state.contacts)
-	
-	const changeFilter = e => {
-		const { value } = e.currentTarget;
-		setFilter(value);
-	};
+  //   const [filter, setFilter] = useState('');
+  const contacts = useSelector(state => state.contacts);
+  const filterValue = useSelector(state => state.filter);
+  const dispatch = useDispatch();
 
-	const getFilteredContacts = () => {
-		const normalizedFilter = filter.toLowerCase();
+  const changeFilter = e => {
+    const { value } = e.currentTarget;
 
-		return contacts.filter(contact =>
-			contact.name.toLowerCase().includes(normalizedFilter)
-		);
-	};
-	const filteredContacts = getFilteredContacts();
+    dispatch(addFilterText(value));
+    // setFilter(value);
+  };
 
-	
-	return (
-		<div className={css.phonebook}>
-			<h1>Phonebook</h1>
-			<ContactForm />
-			<h2>Contacts</h2>
-			<Filter value={filter} onChange={changeFilter} />
-			<ContactsList
-				contacts={filteredContacts}
-			/>
-		</div>
-	);
+  const getFilteredContacts = () => {
+    const normalizedFilter = filterValue.toLowerCase();
+
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
+  };
+  const filteredContacts = getFilteredContacts();
+
+  return (
+    <div className={css.phonebook}>
+      <h1>Phonebook</h1>
+      <ContactForm />
+      <h2>Contacts</h2>
+      <Filter value={filterValue} changeFilter={changeFilter} />
+      <ContactsList contacts={filteredContacts} />
+    </div>
+  );
 };
